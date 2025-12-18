@@ -705,3 +705,34 @@
 .reveal .slides section:hover .grid-wrapper {
   box-shadow: 0 15px 60px rgba(224, 69, 86, 0.15);
 }
+
+/* Transiciones suaves personalizadas */
+.reveal .slides > section {
+  transition: all 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+.reveal .slides > section.past {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0) rotateY(-10deg);
+}
+
+.reveal .slides > section.future {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0) rotateY(10deg);
+}
+
+.reveal .slides > section.present {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotateY(0deg);
+}
+
+/* Suavizar todas las animaciones */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Transición suave para cambios de opacidad */
+.reveal .slides section * {
+  will-change: transform, opacity;
+}
