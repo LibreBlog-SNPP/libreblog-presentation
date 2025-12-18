@@ -2,7 +2,7 @@
 
 Presentación académica desarrollada con Reveal.js para el proyecto "Sistema Web para Creación y Administración de Blogs Personales - LibreBlog".
 
-## 📋 Contenido
+##  Contenido
 
 La presentación incluye 14 diapositivas que cubren:
 
@@ -18,7 +18,7 @@ La presentación incluye 14 diapositivas que cubren:
 - **Resultados** - Métricas de rendimiento y usabilidad
 - **Conclusiones** - Aportes y trabajo futuro
 
-## 🚀 Cómo usar
+##  Cómo usar
 
 ### Ver localmente
 1. Abre el archivo `index.html` en tu navegador
@@ -30,14 +30,13 @@ La presentación incluye 14 diapositivas que cubren:
 - **F** - Pantalla completa
 - **S** - Modo presentador
 
-## 🛠️ Tecnologías
+##  Tecnologías
 
 - Reveal.js 4.3.1
 - CSS Grid y Flexbox
 - Times New Roman (tipografía académica)
-- Diseño minimalista con animaciones sutiles
 
-## 👥 Autores
+##  Autores
 
 - Guillermo Ismael Martinez Caballero
 - Alejandro Hernán Alonso Rodríguez
