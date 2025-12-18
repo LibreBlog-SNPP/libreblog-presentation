@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibreBlog - Sistema Web para Creación y Administración de Blogs Personales</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/theme/simple.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="reveal pattern--waterfall">
+        <div class="slides">
+            
+            <!-- Diapositiva 1 - Portada -->
+            <section class="intro">
+                <div class="grid-wrapper">
+                    <div class="content-left">
+                        <div class="logos-container">
+                            <div class="logo-rectangular">
+                                <img src="gobierno.png" alt="Logo Gobierno" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="logo-fallback" style="display:none;">GOBIERNO</div>
+                            </div>
+                            <div class="logo-rectangular">
+                                <img src="snpp.png" alt="Logo SNPP" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="logo-fallback" style="display:none;">SNPP</div>
+                            </div>
+                            <div class="logo-square">
+                                <img src="CTFP-JP.jpg" alt="Logo CTFP-JP" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="logo-fallback" style="display:none;">CTFP-JP</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <h1>CENTRO TECNOLÓGICO DE FORMACIÓN PROFESIONAL<br>PARAGUAY – JAPÓN</h1>
+                        <h2>Técnico Superior en Programación de Aplicaciones Informáticas<br>2025</h2>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 2 - Título y Autores -->
+            <section class="title">
+                <div class="grid-wrapper">
+                    <div class="content-left">
+                        <div class="logo-center">
+                            <img src="logo-proyecto.png" alt="Logo LibreBlog" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <div class="logo-placeholder" style="display:none;">LOGO</div>
+                        </div>
+                        <div class="info-section">
+                            <p><strong>Tutor:</strong><br>Moisés Ávalos</p>
+                            <p><strong>Integrantes:</strong><br>
+                            Guillermo Ismael Martinez Caballero<br>
+                            Alejandro Hernán Alonso Rodríguez</p>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <h1>SISTEMA WEB PARA CREACIÓN Y ADMINISTRACIÓN DE BLOGS PERSONALES</h1>
+                        <h2>LibreBlog Plataforma de Blogging de Código Abierto</h2>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 3 - Introducción -->
+            <section>
+                <div class="grid-wrapper">
+                    <h1>Introducción</h1>
+                    
+                    <div class="section-block">
+                        <h3>Contexto:</h3>
+                        <ul>
+                            <li>Plataformas cerradas → pérdida de control de datos para los creadores</li>
+                            <li>Infraestructura propia → coste y complejidad</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <h3>Problema:</h3>
+                        <ul>
+                            <li>Falta de alternativas seguras y económicas para publicar contenido</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <h3>Propuesta:</h3>
+                        <ul>
+                            <li>LibreBlog: Open Source, control de datos a nivel de instancia, coste operativo cero en entorno free-tier</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 4 - Planteamiento del problema -->
+            <section>
+                <div class="grid-wrapper">
+                    <h1>Planteamiento del problema</h1>
+                    
+                    <div class="section-block">
+                        <h3>Desafío técnico:</h3>
+                        <ul>
+                            <li>Implementar seguridad avanzada y tiempo real sin servidores propios</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <h3>Pregunta de investigación:</h3>
+                        <ul>
+                            <li>¿Es viable una plataforma segura y reactiva usando únicamente servicios gratuitos (free-tier)?</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <h3>Oportunidad tecnológica:</h3>
+                        <ul>
+                            <li>Madurez del ecosistema Serverless (Next.js, React, Supabase, Vercel)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 5 - Objetivo -->
+            <section>
+                <div class="grid-wrapper">
+                    <h1>Objetivo</h1>
+                    
+                    <div class="section-block">
+                        <h3>Objetivo general:</h3>
+                        <ul>
+                            <li>Desarrollar y validar una plataforma web de blogging utilizando tecnologías modernas y gratuitas.</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <h3>Objetivos específicos:</h3>
+                        <ul>
+                            <li>Diseñar una arquitectura serverless utilizando Next.js y React.</li>
+                            <li>Implementar un sistema de autenticación y autorización seguro.</li>
+                            <li>Aplicar políticas de seguridad a nivel de base de datos mediante Row Level Security (RLS).</li>
+                            <li>Evaluar el rendimiento y la usabilidad de la plataforma desarrollada.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 6 - Justificación -->
+            <section>
+                <div class="grid-wrapper">
+                    <h1>Justificación</h1>
+                    
+                    <div class="section-block">
+                        <h3>Justificación académica:</h3>
+                        <ul>
+                            <li>Caso de estudio replicable para proyectos de desarrollo web moderno.</li>
+                            <li>Aplicación práctica de conceptos de arquitectura, seguridad y rendimiento.</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <h3>Justificación social:</h3>
+                        <ul>
+                            <li>Promoción del software libre y el acceso a plataformas web seguras.</li>
+                            <li>Reducción de barreras económicas para la publicación de contenido digital.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 7 - Marco Teórico -->
+            <section>
+                <div class="grid-wrapper">
+                    <h1>Marco Teórico</h1>
+                    
+                    <div class="section-block">
+                        <h3>Arquitectura Serverless:</h3>
+                        <ul>
+                            <li>Eliminación de servidores dedicados</li>
+                            <li>Escalabilidad gestionada por el proveedor</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <h3>Frameworks Web Modernos:</h3>
+                        <ul>
+                            <li>Next.js y React como estándares actuales</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <h3>Seguridad de la Información:</h3>
+                        <ul>
+                            <li>Autenticación basada en JWT</li>
+                            <li>Control de acceso mediante Row Level Security (RLS)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 8 - Marco Metodológico -->
+            <section>
+                <div class="grid-wrapper">
+                    <h1>Marco Metodológico</h1>
+                    
+                    <div class="metodologia-grid">
+                        <div class="section-block">
+                            <h3>Tipo de investigación:</h3>
+                            <ul>
+                                <li>Aplicada – Tecnológica</li>
+                            </ul>
+                        </div>
+
+                        <div class="section-block">
+                            <h3>Diseño de investigación:</h3>
+                            <ul>
+                                <li>No experimental – Descriptivo</li>
+                            </ul>
+                        </div>
+
+                        <div class="section-block">
+                            <h3>Enfoque metodológico:</h3>
+                            <ul>
+                                <li>Mixto</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="section-block">
+                        <h3>Técnicas utilizadas:</h3>
+                        <ul>
+                            <li>Auditorías técnicas (Google Lighthouse)</li>
+                            <li>Encuesta de usabilidad con escala Likert y preguntas abiertas (N = 11)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 9 - Arquitectura Técnica -->
+            <section class="architecture-slide">
+                <div class="grid-wrapper">
+                    <h1>Arquitectura Técnica</h1>
+                    
+                    <div class="arch-grid">
+                        <div class="arch-item">
+                            <h3>Frontend:</h3>
+                            <ul>
+                                <li>Next.js (App Router)</li>
+                                <li>React (Server Components y Server Actions)</li>
+                            </ul>
+                        </div>
+
+                        <div class="arch-item">
+                            <h3>Backend:</h3>
+                            <ul>
+                                <li>Supabase</li>
+                                <li>PostgreSQL</li>
+                            </ul>
+                        </div>
+
+                        <div class="arch-item">
+                            <h3>Seguridad:</h3>
+                            <ul>
+                                <li>JWT</li>
+                                <li>Row Level Security (RLS)</li>
+                            </ul>
+                        </div>
+
+                        <div class="arch-item">
+                            <h3>Tiempo real:</h3>
+                            <ul>
+                                <li>Supabase Realtime (WebSockets)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 10 - Nota sobre Actualización del Stack -->
+            <section>
+                <div class="grid-wrapper">
+                    <h1>Nota sobre Actualización del Stack</h1>
+                    
+                    <div class="section-block">
+                        <h3>Estado del proyecto:</h3>
+                        <ul>
+                            <li>Documentación académica elaborada sobre una versión estable.</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <h3>Actualización posterior:</h3>
+                        <ul>
+                            <li>Actualización de Next.js y React por alertas críticas de seguridad.</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <h3>Impacto:</h3>
+                        <ul>
+                            <li>Mantenimiento responsable.</li>
+                            <li>Arquitectura, objetivos y resultados permanecen válidos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 11 - Demostración de la Aplicación -->
+            <section>
+                <div class="grid-wrapper">
+                    <h1>Demostración de la Aplicación</h1>
+                    
+                    <div class="section-block">
+                        <h3>Demostración en vivo del sistema:</h3>
+                        <ul>
+                            <li>Registro e inicio de sesión</li>
+                            <li>Gestión de publicaciones</li>
+                            <li>Visualización pública del contenido</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <h3>URL de la aplicación:</h3>
+                        <ul>
+                            <li><a href="https://libreblog-nextjs.vercel.app/" target="_blank">https://libreblog-nextjs.vercel.app/</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <h3>Repositorio GitHub:</h3>
+                        <ul>
+                            <li><a href="https://github.com/orgs/LibreBlog-SNPP/repositories" target="_blank">https://github.com/orgs/LibreBlog-SNPP/repositories</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 12 - Resultados -->
+            <section>
+                <div class="grid-wrapper">
+                    <h1>Resultados</h1>
+                    
+                    <div class="section-block">
+                        <h3>Resultados técnicos:</h3>
+                        <ul>
+                            <li>Google Lighthouse: 99 / 100</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <h3>Resultados de usabilidad:</h3>
+                        <ul>
+                            <li>Satisfacción del flujo CRUD: 4.64 / 5</li>
+                            <li>Muestra: N = 11 usuarios</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <p><em>Fuente: Tabla 4.21.1 — Documento del proyecto</em></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 13 - Conclusión -->
+            <section>
+                <div class="grid-wrapper">
+                    <h1>Conclusión</h1>
+                    
+                    <div class="section-block">
+                        <h3>Conclusiones:</h3>
+                        <ul>
+                            <li>Viabilidad técnica confirmada.</li>
+                            <li>Arquitectura serverless eficiente y segura.</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <h3>Trabajo futuro:</h3>
+                        <ul>
+                            <li>Editor WYSIWYG</li>
+                            <li>Mejoras de feedback visual</li>
+                            <li>Modo oscuro</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diapositiva 14 - Cierre -->
+            <section class="end color--radiant">
+                <div class="grid-wrapper">
+                    <div class="content-left">
+                        <div class="logo-space">
+                            <img src="logo-proyecto.png" alt="Logo LibreBlog" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <div class="logo-fallback" style="display:none;">LOGO</div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <h1>Gracias por su atención</h1>
+                        <h2>¿Preguntas?</h2>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.3.1/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'slide',
+            controls: true,
+            progress: true,
+            center: true,
+            viewDistance: 3
+        });
+    </script>
+</body>
+</html>
