@@ -404,13 +404,46 @@
     <script>
         Reveal.initialize({
             hash: true,
-            transition: 'slide',
+            transition: 'convex',
             transitionSpeed: 'default',
-            backgroundTransition: 'slide',
+            backgroundTransition: 'zoom',
             controls: true,
             progress: true,
             center: true,
-            viewDistance: 3
+            viewDistance: 3,
+            parallaxBackgroundImage: '',
+            parallaxBackgroundSize: '',
+            mouseWheel: true,
+            overview: true,
+            touch: true,
+            loop: false,
+            rtl: false,
+            navigationMode: 'default',
+            shuffle: false,
+            fragments: true,
+            fragmentInURL: true,
+            embedded: false,
+            help: true,
+            showNotes: false,
+            autoPlayMedia: null,
+            preloadIframes: null,
+            autoSlide: 0,
+            autoSlideStoppable: true,
+            defaultTiming: null,
+            totalTime: 0,
+            minimumTimePerSlide: 0,
+            slideNumber: 'c/t',
+            controlsTutorial: true,
+            controlsLayout: 'bottom-right',
+            controlsBackArrows: 'faded',
+            display: 'block',
+            hideInactiveCursor: true,
+            hideCursorTime: 3000
+        });
+
+        // Efecto de tecla para modo presentador
+        Reveal.on('ready', () => {
+            console.log('Presentación lista. Presiona "S" para modo presentador.');
         });
     </script>
 </body>

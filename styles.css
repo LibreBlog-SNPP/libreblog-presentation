@@ -10,7 +10,7 @@
 .reveal {
   font-family: "Times New Roman", Times, serif;
   color: var(--color-text);
-  background: var(--color-white);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
 }
 
 .reveal .slides section {
@@ -48,28 +48,65 @@
 @keyframes fadeInDown {
   from {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-30px) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { 
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to { 
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
 }
 
 .grid-wrapper {
@@ -80,6 +117,8 @@
   background: rgba(255, 255, 255, 0.98);
   border-radius: 20px;
   animation: fadeIn 0.8s ease-out;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(224, 69, 86, 0.1);
 }
 
 .reveal .slides section.intro {
@@ -127,6 +166,7 @@
   color: var(--color-white);
   text-shadow: 0 4px 20px rgba(0,0,0,0.5);
   margin-top: 2rem;
+  animation: fadeInDown 1s ease-out;
 }
 
 .intro h2 {
@@ -134,6 +174,7 @@
   color: rgba(255, 255, 255, 0.95);
   font-style: italic;
   font-weight: 400;
+  animation: fadeInUp 1.2s ease-out;
 }
 
 .logos-container {
@@ -142,7 +183,7 @@
   gap: 1.2rem;
   width: 100%;
   max-width: 450px;
-  animation: fadeIn 1s ease-out;
+  animation: slideInLeft 1s ease-out;
 }
 
 .logo-rectangular {
@@ -227,6 +268,7 @@
   color: var(--color-white);
   text-shadow: 0 4px 20px rgba(0,0,0,0.5);
   margin-top: 2rem;
+  animation: fadeInDown 1s ease-out;
 }
 
 .title h2 {
@@ -234,6 +276,13 @@
   color: rgba(255, 255, 255, 0.95);
   font-style: italic;
   font-weight: 400;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.logo-center {
+  width: 200px;
+  height: 200px;
+  margin: 2rem auto;
 }
 
 .logo-image {
@@ -242,13 +291,7 @@
   object-fit: contain;
   border-radius: 24px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeIn 1s ease-out;
-}
-
-.logo-image:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+  animation: pulse 2s ease-in-out infinite;
 }
 
 .logo-placeholder {
@@ -283,8 +326,25 @@
   border-radius: 20px;
   border-left: 6px solid var(--color-primary);
   margin-bottom: 1rem;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   animation: fadeInUp 0.6s ease-out backwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(224, 69, 86, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.section-block:hover::before {
+  left: 100%;
 }
 
 .section-block:nth-child(2) { animation-delay: 0.1s; }
@@ -293,7 +353,8 @@
 .section-block:nth-child(5) { animation-delay: 0.4s; }
 
 .section-block:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1.02);
+  border-left-width: 8px;
 }
 
 .section-block h3 {
@@ -330,6 +391,14 @@
   margin-bottom: 1rem;
 }
 
+.metodologia-grid .section-block {
+  animation: fadeIn 0.8s ease-out backwards;
+}
+
+.metodologia-grid .section-block:nth-child(1) { animation-delay: 0.2s; }
+.metodologia-grid .section-block:nth-child(2) { animation-delay: 0.3s; }
+.metodologia-grid .section-block:nth-child(3) { animation-delay: 0.4s; }
+
 .arch-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -342,8 +411,25 @@
   border-left: 6px solid var(--color-primary);
   padding: 2.5rem;
   border-radius: 20px;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   animation: fadeIn 0.8s ease-out backwards;
+  position: relative;
+  overflow: hidden;
+}
+
+.arch-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(224, 69, 86, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.arch-item:hover::before {
+  left: 100%;
 }
 
 .arch-item:nth-child(1) { animation-delay: 0.1s; }
@@ -352,7 +438,8 @@
 .arch-item:nth-child(4) { animation-delay: 0.4s; }
 
 .arch-item:hover {
-  transform: translateY(-8px);
+  transform: translateY(-8px) scale(1.03);
+  border-left-width: 8px;
 }
 
 .arch-item h3 {
@@ -488,6 +575,7 @@
   color: var(--color-white);
   text-shadow: 0 4px 20px rgba(0,0,0,0.5);
   margin-top: 2rem;
+  animation: fadeInDown 1s ease-out;
 }
 
 .end.color--radiant h2 {
@@ -495,6 +583,7 @@
   color: rgba(255, 255, 255, 0.95);
   font-style: italic;
   font-weight: 400;
+  animation: fadeInUp 1.2s ease-out;
 }
 
 .end.color--radiant .logo-space {
@@ -509,6 +598,7 @@
   object-fit: contain;
   border-radius: 24px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  animation: pulse 2s ease-in-out infinite;
 }
 
 .reveal a {
@@ -522,4 +612,96 @@
 .reveal a:hover {
   color: var(--color-dark);
   border-bottom-color: var(--color-primary);
+}
+
+/* Estilo del contador de diapositivas */
+.reveal .slide-number {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-dark));
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 15px rgba(224, 69, 86, 0.3);
+}
+
+/* Estilo de los controles */
+.reveal .controls {
+  color: var(--color-primary);
+}
+
+.reveal .controls button {
+  transition: all 0.3s ease;
+}
+
+.reveal .controls button:hover {
+  transform: scale(1.2);
+  color: var(--color-dark);
+}
+
+/* Barra de progreso */
+.reveal .progress {
+  background: rgba(224, 69, 86, 0.2);
+  height: 4px;
+}
+
+.reveal .progress span {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-dark));
+  transition: transform 0.3s ease;
+}
+
+/* Efecto de enfoque en elementos interactivos */
+.reveal a,
+.reveal button {
+  position: relative;
+}
+
+.reveal a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.reveal a:hover::after {
+  width: 100%;
+}
+
+/* Animación de entrada para listas */
+.reveal ul li {
+  animation: fadeInUp 0.5s ease-out backwards;
+}
+
+.reveal ul li:nth-child(1) { animation-delay: 0.1s; }
+.reveal ul li:nth-child(2) { animation-delay: 0.2s; }
+.reveal ul li:nth-child(3) { animation-delay: 0.3s; }
+.reveal ul li:nth-child(4) { animation-delay: 0.4s; }
+.reveal ul li:nth-child(5) { animation-delay: 0.5s; }
+
+/* Efecto de resaltado en hover para títulos */
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  transition: all 0.3s ease;
+}
+
+.reveal h1:hover,
+.reveal h2:hover,
+.reveal h3:hover {
+  transform: translateX(5px);
+  letter-spacing: 1px;
+}
+
+/* Sombra dinámica en grid-wrapper */
+.grid-wrapper {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.reveal .slides section:hover .grid-wrapper {
+  box-shadow: 0 15px 60px rgba(224, 69, 86, 0.15);
 }
